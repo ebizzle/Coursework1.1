@@ -1,5 +1,5 @@
 
-package coursework1;
+package course;
 
 /**
  *
