@@ -60,8 +60,9 @@ public class Client {
                     double s1 = scanner.nextDouble();
                     System.out.println("Side 2:");
                     double s2 = scanner.nextDouble();
-                    System.out.println("Height:");
+                    System.out.println("Base:");
                     double s3 = scanner.nextDouble();
+                    System.out.println("Height");
                     double s4 = scanner.nextDouble();
 
                     Triangle triangle = new Triangle(name, s1, s2, s3, s4) {};
