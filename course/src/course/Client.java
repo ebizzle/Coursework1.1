@@ -17,83 +17,188 @@ import java.util.logging.Logger;
  */
 public class Client {
    
-    ObjectOutputStream outputToServer = null;
-    ObjectInputStream fromServer = null;
-    WriteFile x = new WriteFile();
 
-    
-        int port = 8000;
-        String host = "localhost";
-        Socket socket;
-        
- public void display_menu(){
-    Scanner s = new Scanner (System.in);
-    System.out.println("Welcome");
-    System.out.println("Choose from these choices");
-    System.out.println("---------------------\n");
-    System.out.println("(1) Create 2d Shapes\n (2) Create 3d Shapes\n (3)Exit");
-    int choice = s.nextInt();
-    System.out.println( "Selection: ");
- }
-  
- public Client(){
-     
-     Scanner in = new Scanner (System.in);
-    
-     display_menu();
-     switch (in.nextInt()){
-         case 1:
-             choice==1; 
-             System.out.println("Create 2d Shapes");
-             
-     }
-        
-        
+    private int port;
+    private String host;
 
-        try {
-            socket = new Socket(host, port);
-            outputToServer = new ObjectOutputStream(socket.getOutputStream());
-            fromServer = new ObjectInputStream(socket.getInputStream());
-        } catch (IOException ex) {
-            taxMessage.setText(ex.toString() + '\n');
-        }
-
-       
-                try {
-                    ArrayList In = new ArrayList();
-                    double income = Double.parseDouble(totalField.getText());
-                    In.add(income);
-                    String name = nameField.getText();
-                    In.add(name);
-                    outputToServer.writeObject(In);
-                    outputToServer.flush();
-
-                    In = (ArrayList) fromServer.readObject();
-
-                    double taxRate = (double) In.get(2);
-                    double niRate = (double) In.get(3);
-
-                    double tax = income * taxRate;
-                    tax = Math.round(tax * 100.0) / 100.0;
-                    double taxPerMonth = tax / 12;
-                    taxPerMonth = Math.round(taxPerMonth * 100.0) / 100.0;
-                    double ni = income * niRate;
-                    ni = Math.round(ni * 100.0) / 100.0;
-                    double niPerMonth = ni / 12;
-                    niPerMonth = Math.round(niPerMonth * 100.0) / 100.0;
-                    double monthlyIncome = (income - tax - ni) / 12;
-                    monthlyIncome = Math.round(monthlyIncome * 100.0) / 100.0;
-
-                    x.writetofile(income, name, tax, ni, taxPerMonth, niPerMonth, monthlyIncome);
-                    taxMessage.setText("Name: " + name + "\n" + "Income: " + income + "\n" + "Tax: " + tax + "\n" + "NI: " + ni + "\n" + "Tax Per Month: " + taxPerMonth + "\n" + "NI Per Month:" + niPerMonth + "\n" + "Monthly income: " + monthlyIncome);
-                } catch (IOException ex) {
-                    System.err.println(ex);
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(TaxCalculator4.class.getName()).log(Level.SEVERE, null, ex);
-                }
-           
-      
+   Client(String host, int port) {
+        this.port = port;
+        this.host = host;
     }
+
+    public void start() {
+        int option = 0;
+
+        System.out.println("Shapes Application");
+
+        while (option != 3) {
+
+            System.out.println("Enter an option");
+            System.out.println("1. 2D Shapes");
+            System.out.println("2. 3D Shapes");
+            System.out.println("3. Exit");
+            Scanner scanner = new Scanner(System.in);
+
+            option = scanner.nextInt();
+
+            if (option == 1) {
+                System.out.println("You have chosen 2D Shapes");
+                System.out.println("");
+                System.out.println("Enter Shape's Name:");
+                String name = scanner.next();
+
+                System.out.println("Enter an option: ");
+                System.out.println("1. Create Triangle :");
+                System.out.println("2. Create Circle   :");
+                System.out.println("3. Create Rectangle:");
+                System.out.println("4. Exit");
+                String twoDOption = scanner.next();
+
+                if (twoDOption.equals("1")) {
+                    System.out.println("Enter values for Triangle");
+                    System.out.println("Side 1: ");
+                    double s1 = scanner.nextDouble();
+                    System.out.println("Side 2:");
+                    double s2 = scanner.nextDouble();
+                    System.out.println("Side 3:");
+                    double s3 = scanner.nextDouble();
+
+                    Triangle triangle = new Triangle(name, s1, s2, s3);
+
+                    triangle.displayDescription();
+
+                    System.out.println("Area     :" + triangle.getArea());
+
+                    System.out.println("Perimeter:" + triangle.getPerimeter());
+
+                    //Calculate the area and perimeter and then store in ArrayList<Shape>
+                    System.out.println("Send the triangle " + name + " to the server");
+                    System.out.println("Select y for yes and n for no");
+                    String response = scanner.next();
+                    //Based on user input, either send the triangle to the server or not.
+
+                } else if (twoDOption.equals("2")) {
+                    System.out.println("Enter Dimentions of Circle");
+                    System.out.println("Radius");
+                    double radius = scanner.nextDouble();
+
+                    Circle circle = new Circle(name, radius);
+
+                    circle.displayDescription();
+
+                    System.out.println("Area     :" + circle.getArea());
+
+                    System.out.println("Perimeter:" + circle.getPerimeter());
+
+                    //Calculate the area and perimeter and then store in ArrayList<Shape>
+                    System.out.println("Send the Circle " + name + " to the server");
+                    System.out.println("Select y for yes and n for no");
+                    String response = scanner.next();
+                    //Based on user input, either send the circle to the server or not.      
+
+                } else if (twoDOption.equals("3")) {
+                    System.out.println("Enter Dimetions of rectangle");
+                    System.out.println("Height");
+                    int height = scanner.nextInt();
+                    System.out.println("Width");
+                    int width = scanner.nextInt();
+
+                    Rectangle rectangle = new Rectangle(name, height, width);
+
+                    rectangle.displayDescription();
+
+                    System.out.println("Area     :" + rectangle.getArea());
+
+                    System.out.println("Perimeter:" + rectangle.getPerimeter());
+
+                    //Calculate the area and perimeter and then store in ArrayList<Shape>
+                    System.out.println("Send the rectangle " + name + " to the server");
+                    System.out.println("Select y for yes and n for no");
+                    String response = scanner.next();
+                    //Based on user input, either send the rectangle to the server or not.   
+
+                } else {
+                    System.out.println("You have not entered a valid letter corresponding to the 2D shape you wish to create.");
+                }
+                System.exit(0);
+            } else if (option == 2) {
+                System.out.println("3D Shapes");
+
+                System.out.println("Enter Shape's Name:");
+                String name = scanner.next();
+
+                System.out.println("Enter an option:");
+                System.out.println("1. Cylinder   :");
+                System.out.println("2. Sphere     :");
+                System.out.println("To exit, enter anything else");
+                String threeDOption = scanner.next();
+
+                if (threeDOption.equals("1")) {
+                    System.out.println("Enter Dimetions of cylinder");
+                    System.out.println("Radius");
+                    int radius = scanner.nextInt();
+                    System.out.println("Height");
+                    int height = scanner.nextInt();
+
+                    Cylinder cylinder = new Cylinder(name, radius, height);
+
+                    cylinder.displayDescription();
+
+                    System.out.println("Surface Area:" + cylinder.getSurfaceArea());
+
+                    System.out.println("Volume      :" + cylinder.getVolume());
+
+                    //Calculate the surface area and volume and then move to ArrayList<Shape>
+                    System.out.println("Send the cylinder " + name + " to the server");
+                    System.out.println("Select y for yes and n for no");
+                    String response = scanner.next();
+                    //Based on user input, either send the cylinder to the server or not.
+
+                } else if (threeDOption.equals("2")) {
+                    System.out.println("Enter Dimetions of sphere");
+                    System.out.println("Radius");
+                    int radius = scanner.nextInt();
+
+                    Sphere sphere = new Sphere(name, radius);
+
+                    sphere.displayDescription();
+
+                    System.out.println("Surface Area:" + sphere.getSurfaceArea());
+
+                    System.out.println("Volume      :" + sphere.getVolume());
+
+                    //Calculate surface area and volume and then move to ArrayList<Shape>
+                    System.out.println("Send the sphere " + name + " to the server");
+                    System.out.println("Select y for yes and n for no");
+                    String response = scanner.next();
+                    //Based on user input, either send the sphere to the server or not.
+
+                } else {
+                    System.out.println("Invalid Entry for 3D Shapes");
+                }
+                System.exit(0);
+
+            
+            } else if (option == 3) {
+                System.exit(0);
+
+            } else {
+                System.out.println("Please enter a valid input");
+                System.out.println();
+            }
+        }
+        
+        //Server Side Code
+        try {
+            
+            //Server Code 
+        
+        } catch (IOException ex) {
+            System.out.println("");
+        }
+    }
+
+}
 
     
     public static void main(String[] args) {
