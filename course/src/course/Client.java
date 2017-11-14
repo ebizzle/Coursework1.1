@@ -60,10 +60,11 @@ public class Client {
                     double s1 = scanner.nextDouble();
                     System.out.println("Side 2:");
                     double s2 = scanner.nextDouble();
-                    System.out.println("Side 3:");
+                    System.out.println("Height:");
                     double s3 = scanner.nextDouble();
+                    double s4 = scanner.nextDouble();
 
-                    Triangle triangle = new Triangle(name, s1, s2, s3);
+                    Triangle triangle = new Triangle(name, s1, s2, s3, s4) {};
 
                     triangle.displayDescription();
 
@@ -82,7 +83,7 @@ public class Client {
                     System.out.println("Radius");
                     double radius = scanner.nextDouble();
 
-                    Circle circle = new Circle(name, radius);
+                    Circle circle = new Circle(name, radius) {};
 
                     circle.displayDescription();
 
@@ -103,7 +104,7 @@ public class Client {
                     System.out.println("Width");
                     int width = scanner.nextInt();
 
-                    Rectangle rectangle = new Rectangle(name, height, width);
+                    Rectangle rectangle = new Rectangle(name, height, width) {};
 
                     rectangle.displayDescription();
 
@@ -140,7 +141,7 @@ public class Client {
                     System.out.println("Height");
                     int height = scanner.nextInt();
 
-                    Cylinder cylinder = new Cylinder(name, radius, height);
+                    Cylinder cylinder = new Cylinder(name, radius, height) {};
 
                     cylinder.displayDescription();
 
@@ -159,7 +160,7 @@ public class Client {
                     System.out.println("Radius");
                     int radius = scanner.nextInt();
 
-                    Sphere sphere = new Sphere(name, radius);
+                    Sphere sphere = new Sphere(name, radius) {};
 
                     sphere.displayDescription();
 
@@ -187,23 +188,7 @@ public class Client {
                 System.out.println();
             }
         }
-        
-        //Server Side Code
-        try {
-            
-            //Server Code 
-        
-        } catch (IOException ex) {
-            System.out.println("");
-        }
-    }
 
-}
-
-    
-    public static void main(String[] args) {
-
-        
     }
 
 }

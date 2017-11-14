@@ -13,11 +13,7 @@ package course;
         _name = name;
         
     }
-    
-    public abstract double getArea();
-    
-    public abstract double getPerimeter();
-    
+ 
     public void displayDescription() {
         System.out.println("I'm a shape named " + _name);
     }

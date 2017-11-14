@@ -5,7 +5,7 @@ package course;
  *
  * @author M00609897
  */
-public abstract class Cylinder extends Shape3d {
+public class Cylinder extends Shape3d {
     
     private final double _radius;
     private final double _height;

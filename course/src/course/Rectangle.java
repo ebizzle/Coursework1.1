@@ -5,7 +5,7 @@ package course;
  *
  * @author M00609897
  */
-public abstract class Rectangle extends Shape2d {
+public class Rectangle extends Shape2d {
     
     private final double _height;
     private final double _width;

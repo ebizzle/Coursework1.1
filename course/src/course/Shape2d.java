@@ -11,10 +11,10 @@ public abstract class Shape2d extends Shape {
         super(name);
     }
     
-    @Override
+
     public abstract double getArea();
     
-    @Override
+
     public abstract double getPerimeter();
     
     @Override

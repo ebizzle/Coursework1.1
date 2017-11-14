@@ -5,7 +5,7 @@ package course;
  *
  * @author M00609897
  */
-public abstract class Triangle extends Shape2d {
+public class Triangle extends Shape2d {
     
     private final double _side1;
     

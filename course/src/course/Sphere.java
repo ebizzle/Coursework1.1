@@ -5,7 +5,7 @@ package course;
  *
  * @author M00609897
  */
-public abstract  class Sphere extends Shape3d {
+public class Sphere extends Shape3d {
     
     private final double _radius;
     public Sphere(String name, double radius){
