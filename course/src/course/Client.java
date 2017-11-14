@@ -44,9 +44,7 @@ public class Client {
             if (option == 1) {
                 System.out.println("You have chosen 2D Shapes");
                 System.out.println("");
-                System.out.println("Enter Shape's Name:");
-                String name = scanner.next();
-
+                
                 System.out.println("Enter an option: ");
                 System.out.println("1. Create Triangle :");
                 System.out.println("2. Create Circle   :");
@@ -55,6 +53,8 @@ public class Client {
                 String twoDOption = scanner.next();
 
                 if (twoDOption.equals("1")) {
+                    System.out.println("Enter Shape's Name:");
+                    String name = scanner.next();
                     System.out.println("Enter values for Triangle");
                     System.out.println("Side 1: ");
                     double s1 = scanner.nextDouble();
@@ -79,6 +79,8 @@ public class Client {
                     //Based on user input, either send the triangle to the server or not.
 
                 } else if (twoDOption.equals("2")) {
+                    System.out.println("Enter Shape's Name:");
+                    String name = scanner.next();
                     System.out.println("Enter Dimentions of Circle");
                     System.out.println("Radius");
                     double radius = scanner.nextDouble();
@@ -98,6 +100,8 @@ public class Client {
                     //Based on user input, either send the circle to the server or not.      
 
                 } else if (twoDOption.equals("3")) {
+                    System.out.println("Enter Shape's Name:");
+                    String name = scanner.next();
                     System.out.println("Enter Dimetions of rectangle");
                     System.out.println("Height");
                     int height = scanner.nextInt();
@@ -125,8 +129,7 @@ public class Client {
             } else if (option == 2) {
                 System.out.println("3D Shapes");
 
-                System.out.println("Enter Shape's Name:");
-                String name = scanner.next();
+               
 
                 System.out.println("Enter an option:");
                 System.out.println("1. Cylinder   :");
@@ -135,6 +138,8 @@ public class Client {
                 String threeDOption = scanner.next();
 
                 if (threeDOption.equals("1")) {
+                    System.out.println("Enter Shape's Name:");
+                    String name = scanner.next();
                     System.out.println("Enter Dimetions of cylinder");
                     System.out.println("Radius");
                     int radius = scanner.nextInt();
@@ -156,6 +161,8 @@ public class Client {
                     //Based on user input, either send the cylinder to the server or not.
 
                 } else if (threeDOption.equals("2")) {
+                    System.out.println("Enter Shape's Name:");
+                    String name = scanner.next();
                     System.out.println("Enter Dimetions of sphere");
                     System.out.println("Radius");
                     int radius = scanner.nextInt();
