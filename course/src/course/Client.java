@@ -103,7 +103,7 @@ public class Client {
                 } else if (twoDOption.equals("3")) {
                     System.out.println("Enter Shape's Name:");
                     String name = scanner.next();
-                    System.out.println("Enter Dimetions of rectangle");
+                    System.out.println("Enter Dimentions of rectangle");
                     System.out.println("Height");
                     int height = scanner.nextInt();
                     System.out.println("Width");
@@ -141,7 +141,7 @@ public class Client {
                 if (threeDOption.equals("1")) {
                     System.out.println("Enter Shape's Name:");
                     String name = scanner.next();
-                    System.out.println("Enter Dimetions of cylinder");
+                    System.out.println("Enter Dimentions of cylinder");
                     System.out.println("Radius");
                     int radius = scanner.nextInt();
                     System.out.println("Height");
@@ -164,7 +164,7 @@ public class Client {
                 } else if (threeDOption.equals("2")) {
                     System.out.println("Enter Shape's Name:");
                     String name = scanner.next();
-                    System.out.println("Enter Dimetions of sphere");
+                    System.out.println("Enter Dimentions of sphere");
                     System.out.println("Radius");
                     int radius = scanner.nextInt();
 
