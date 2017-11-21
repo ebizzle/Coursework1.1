@@ -26,6 +26,8 @@ public class Client {
         this.host = host;
     }
 
+   
+   
     public void start(){
         int option = 0;
         System.out.println("Shapes Application");
